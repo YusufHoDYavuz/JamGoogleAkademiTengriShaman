@@ -20,11 +20,11 @@ public class PlayerHealthTEST : MonoBehaviour
     {
         if (other.CompareTag("AirSkill"))
         {
-            StartCoroutine(airEffect());
+            StartCoroutine(AirEffect());
         }
     }
 
-    private IEnumerator airEffect()
+    private IEnumerator AirEffect()
     {
         rb.AddForce(Vector3.up * 10f, ForceMode.Impulse);
         yield return new WaitForSeconds(1);
