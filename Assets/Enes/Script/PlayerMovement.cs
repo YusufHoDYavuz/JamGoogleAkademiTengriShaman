@@ -5,13 +5,16 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
-    private float speed = 5f;
+    private float walkSpeed = 2f;
+    [SerializeField]
+    private float runSpeed = 5f;
+    [SerializeField]
+    private float rotationSpeed = 250f;
+    [SerializeField] Transform cameraTransform;
 
     private CharacterController _characterController;
     private PlayerAnimController _playerAnimController;
 
-    private Vector3 _hold;
-    private float _paramIncreasePerSecond = 1f;
 
     private void Start()
     {
@@ -26,37 +29,60 @@ public class PlayerMovement : MonoBehaviour
 
     private void Movement()
     {
+        float speed;
         float _horizontal = Input.GetAxisRaw("Horizontal");
         float _vertical = Input.GetAxisRaw("Vertical");
 
-        Vector3 _direction = new Vector3(_horizontal, 0f, _vertical).normalized;
+        Vector3 movementDirection = new Vector3(_horizontal, 0, _vertical);
+        float inputMagnitude = Mathf.Clamp01(movementDirection.magnitude);
 
-        if (Input.GetKey(KeyCode.LeftShift) && _direction.magnitude >= 0.1f)
+        // Run
+        if (Input.GetKey(KeyCode.LeftShift) && inputMagnitude >= 0.1f)
         {
-            _direction = _direction * 2;
-            SetMotion(_direction);
+            _playerAnimController._movParam = inputMagnitude * 2;
+            speed = runSpeed;
         }
-
-        else if (_direction.magnitude >= 0.1f )
+        // Walk
+        else if (inputMagnitude >= 0.1f)
         {
-            SetMotion(_direction);
+            _playerAnimController._movParam = inputMagnitude;
+            speed = walkSpeed;
         }
-
+        // Stop
         else
         {
-            _playerAnimController._movX = 0f;
-            _playerAnimController._movY = 0f;
+            _playerAnimController._movParam = 0f;
+            speed = 0f;
+        }
+
+        movementDirection = Quaternion.AngleAxis(cameraTransform.rotation.eulerAngles.y, Vector3.up) * movementDirection;
+        movementDirection.Normalize();
+
+        Vector3 velocity = movementDirection * speed;
+        _characterController.Move(velocity * Time.deltaTime);
+
+        if (movementDirection != Vector3.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
     }
 
-    private void SetMotion(Vector3 _direction)
+
+    private void OnApplicationFocus(bool focus)
     {
-        _characterController.Move(_direction * speed * Time.deltaTime);
-        _playerAnimController._movX = _direction.x;
-        _playerAnimController._movY = _direction.z;
+        if (focus) 
+        { 
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 
-
+ 
 
 
 }

@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerAnimController : MonoBehaviour
 {
-    public float _movX = 0f;
-    public float _movY = 0f;
+    public float _movParam;
+    public bool attackParam;
+    public bool mov;
 
     private Animator _animator;
+    private float _dampTime = 0.2f;
+    
 
     private void Start()
     {
@@ -21,8 +24,11 @@ public class PlayerAnimController : MonoBehaviour
 
     private void SetAnim()
     {
-        _animator.SetFloat("movX", _movX);
-        _animator.SetFloat("movY", _movY); 
+        _animator.SetFloat("movParam", _movParam, _dampTime, Time.deltaTime);
+        _animator.SetBool("attackParam", attackParam);
+
+        if (attackParam) { _animator.Play("SwordAttack"); }
+        
     }
     
 }
