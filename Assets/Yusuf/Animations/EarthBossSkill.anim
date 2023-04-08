@@ -51576,7 +51576,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.9
-    functionName: EarthSkill
+    functionName: BossSkill
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

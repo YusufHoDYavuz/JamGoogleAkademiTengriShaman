@@ -92,6 +92,7 @@ public class EnemyController : MonoBehaviour
     {
         if (skillCounter != skillCounterAmount && distanceToPlayer <= hitDistance)
         {
+            animator.SetBool("is" + bossName + "BossSkill", false);
             animator.SetBool("isWalk", false);
             enemyAgent.stoppingDistance = hitDistance;
             animator.SetBool("isPunch", true);
@@ -116,10 +117,19 @@ public class EnemyController : MonoBehaviour
     }
 
     //Called by animation event
-    private void EarthSkill(int destroyDelay)
+    private void BossSkill(int destroyDelay)
     {
         ReturnSkillCounter();
         GameObject skill = Instantiate(bossSkill, transform.position, transform.rotation, transform);
+        skill.transform.parent = null;
+        Destroy(skill, destroyDelay);
+    }
+
+    //Called by animation event
+    private void FireSkill(int destroyDelay)
+    {
+        ReturnSkillCounter();
+        GameObject skill = Instantiate(bossSkill, player.transform.position, transform.rotation, transform);
         skill.transform.parent = null;
         Destroy(skill, destroyDelay);
     }
