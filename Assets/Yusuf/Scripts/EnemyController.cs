@@ -100,7 +100,6 @@ public class EnemyController : MonoBehaviour
 
         if (skillCounter == skillCounterAmount && distanceToPlayer <= skillRange)
         {
-            animator.SetBool("isWalk", false);
             transform.LookAt(player.transform);
             enemyAgent.stoppingDistance = skillDistance;
             animator.SetBool("is" + bossName + "BossSkill", true);
