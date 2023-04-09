@@ -18,11 +18,14 @@ public class BigBossController : MonoBehaviour
 
     private float distanceToPlayer;
     private int randomSkill;
+    private float currentSpeed;
 
     void Start()
     {
         enemyAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+
+        currentSpeed = enemyAgent.speed;
     }
 
     void Update()
@@ -107,5 +110,15 @@ public class BigBossController : MonoBehaviour
         skill.transform.parent = null;
         skill.transform.localScale /= 2;
         Destroy(skill, destroyDelay);
+    }
+
+    private void EnemyFreeze()
+    {
+        enemyAgent.speed = 0;
+    }
+
+    private void EnemyUnfreeze()
+    {
+        enemyAgent.speed = currentSpeed;
     }
 }

@@ -23,6 +23,7 @@ public class EnemyController : MonoBehaviour
 
     private float distanceToPlayer;
     private int skillCounter;
+    private float currentSpeed;
 
     void Start()
     {
@@ -37,6 +38,8 @@ public class EnemyController : MonoBehaviour
         skillDistance = BossSO.skillDistance;
         hitDistance = BossSO.hitDistance;
         stoppingDistance = BossSO.stoppingDistance;
+
+        currentSpeed = enemyAgent.speed;
     }
 
     void Update()
@@ -122,7 +125,7 @@ public class EnemyController : MonoBehaviour
     private void BossSkill(int destroyDelay)
     {
         ReturnSkillCounter();
-        GameObject skill = Instantiate(bossSkill, transform.position, transform.rotation, transform);
+        GameObject skill = Instantiate(bossSkill, transform.position, Quaternion.identity, transform);
         skill.transform.parent = null;
         skill.transform.localScale /= 2;
         Destroy(skill, destroyDelay);
@@ -150,6 +153,16 @@ public class EnemyController : MonoBehaviour
         punchCollider.SetActive(true);
         yield return new WaitForSeconds(.05f);
         punchCollider.SetActive(false);
+    }
+
+    private void EnemyFreeze()
+    {
+        enemyAgent.speed = 0;
+    }
+    
+    private void EnemyUnfreeze()
+    {
+        enemyAgent.speed = currentSpeed;
     }
 
     private int ReturnSkillCounter()
