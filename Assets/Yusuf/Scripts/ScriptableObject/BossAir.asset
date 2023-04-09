@@ -16,7 +16,7 @@ MonoBehaviour:
   skill: {fileID: 3098154478384629422, guid: 4505d45f0741e5841bb5704627fc2007, type: 3}
   damageAmount: 50
   skillCounterAmount: 1
-  skillRange: 25
-  skillDistance: 10
+  skillRange: 20
+  skillDistance: 20
   hitDistance: 3
   stoppingDistance: 10

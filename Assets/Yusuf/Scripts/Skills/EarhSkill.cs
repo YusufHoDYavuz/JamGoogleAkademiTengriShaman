@@ -6,6 +6,8 @@ public class EarhSkill : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float downDelay;
+    [SerializeField] private int damageAmount;
+
     private Rigidbody rb;
 
     void Start()
@@ -25,6 +27,7 @@ public class EarhSkill : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            other.GetComponent<PlayerHealthTEST>().health -= damageAmount;
             Destroy(gameObject);
         }
     }

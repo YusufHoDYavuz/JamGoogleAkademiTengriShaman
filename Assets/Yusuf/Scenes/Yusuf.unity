@@ -232,10 +232,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 5234316756694895934}
-    - target: {fileID: 8324146706827597169, guid: cdcc656807a817e4e9c791af64164da3, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.005
-      objectReference: {fileID: 0}
     - target: {fileID: 8324146706919126306, guid: cdcc656807a817e4e9c791af64164da3, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -529,10 +525,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigBoss
       objectReference: {fileID: 0}
+    - target: {fileID: 432607630384652693, guid: 63266e2cf15d258458b92f15734ca30a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132147710541484, guid: 63266e2cf15d258458b92f15734ca30a, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1729011331}
+    - target: {fileID: 919132147710541484, guid: 63266e2cf15d258458b92f15734ca30a, type: 3}
+      propertyPath: skillDistance
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 957928570192345903, guid: 63266e2cf15d258458b92f15734ca30a, type: 3}
       propertyPath: m_RootOrder
       value: 9

@@ -58,8 +58,8 @@ public class EnemyController : MonoBehaviour
         {
             EnemyChasing();
         }
-       
-        if(distanceToPlayer > skillRange || skillCounter == skillCounterAmount)
+
+        if (distanceToPlayer > skillRange || skillCounter == skillCounterAmount)
         {
             EnemyTurnAround();
         }
@@ -100,13 +100,16 @@ public class EnemyController : MonoBehaviour
 
         if (skillCounter == skillCounterAmount && distanceToPlayer <= skillRange)
         {
+            animator.SetBool("is" + bossName + "BossSkill", false);
+            animator.SetBool("isPunch", false);
             transform.LookAt(player.transform);
             enemyAgent.stoppingDistance = skillDistance;
+            animator.SetBool("isWalk", false);
             animator.SetBool("is" + bossName + "BossSkill", true);
         }
         Debug.Log("Enemy Attacking");
     }
-  
+
     private void EnemyChasing()
     {
         enemyAgent.SetDestination(player.transform.position);
