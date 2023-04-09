@@ -124,6 +124,7 @@ public class EnemyController : MonoBehaviour
         Destroy(skill, destroyDelay);
     }
 
+    /*
     //Called by animation event
     private void FireSkill(int destroyDelay)
     {
@@ -131,7 +132,7 @@ public class EnemyController : MonoBehaviour
         GameObject skill = Instantiate(bossSkill, player.transform.position, transform.rotation, transform);
         skill.transform.parent = null;
         Destroy(skill, destroyDelay);
-    }
+    }*/
 
     //Called by animation event
     private void PunchSkill()
