@@ -105,6 +105,7 @@ public class BigBossController : MonoBehaviour
     {
         GameObject skill = Instantiate(bossSkills[GetRandomIntValue()], transform.position, transform.rotation, transform);
         skill.transform.parent = null;
+        skill.transform.localScale /= 2;
         Destroy(skill, destroyDelay);
     }
 }

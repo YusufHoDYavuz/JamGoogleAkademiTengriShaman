@@ -124,6 +124,7 @@ public class EnemyController : MonoBehaviour
         ReturnSkillCounter();
         GameObject skill = Instantiate(bossSkill, transform.position, transform.rotation, transform);
         skill.transform.parent = null;
+        skill.transform.localScale /= 2;
         Destroy(skill, destroyDelay);
     }
 

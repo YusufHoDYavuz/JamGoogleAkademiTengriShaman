@@ -238,7 +238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8324146706919126306, guid: cdcc656807a817e4e9c791af64164da3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.95
+      value: -7.27
       objectReference: {fileID: 0}
     - target: {fileID: 8324146706919126306, guid: cdcc656807a817e4e9c791af64164da3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -246,7 +246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8324146706919126306, guid: cdcc656807a817e4e9c791af64164da3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 20.45
+      value: 11.09
       objectReference: {fileID: 0}
     - target: {fileID: 8324146706919126306, guid: cdcc656807a817e4e9c791af64164da3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -533,10 +533,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1729011331}
-    - target: {fileID: 919132147710541484, guid: 63266e2cf15d258458b92f15734ca30a, type: 3}
-      propertyPath: skillDistance
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 957928570192345903, guid: 63266e2cf15d258458b92f15734ca30a, type: 3}
       propertyPath: m_RootOrder
       value: 9

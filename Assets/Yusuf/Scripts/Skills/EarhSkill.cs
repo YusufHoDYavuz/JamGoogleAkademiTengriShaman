@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EarhSkill : MonoBehaviour
 {
+    [SerializeField] private GameObject smashEffect;
+
     [SerializeField] private float speed;
     [SerializeField] private float downDelay;
     [SerializeField] private int damageAmount;
@@ -28,6 +30,8 @@ public class EarhSkill : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.GetComponent<PlayerHealthTEST>().health -= damageAmount;
+            GameObject smashEffectObject = Instantiate(smashEffect, transform.position, Quaternion.Euler(0,0,-90));
+            Destroy(smashEffectObject, 3);
             Destroy(gameObject);
         }
     }

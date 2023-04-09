@@ -168,7 +168,7 @@ MonoBehaviour:
   - {fileID: 5103899571658315007, guid: 989d233e0af864c42852a8820e2ad88a, type: 3}
   - {fileID: 3204700675178935626, guid: 0ca16524adf11af449eb3478a7e9889c, type: 3}
   skillRange: 20
-  skillDistance: 15
+  skillDistance: 20
 --- !u!1 &639130661514845826
 GameObject:
   m_ObjectHideFlags: 0
