@@ -15,7 +15,7 @@ MonoBehaviour:
   bossName: Air
   skill: {fileID: 3098154478384629422, guid: 4505d45f0741e5841bb5704627fc2007, type: 3}
   bossHealth: 100
-  damageAmount: 25
+  damageAmount: 10
   skillCounterAmount: 1
   skillRange: 20
   skillDistance: 20

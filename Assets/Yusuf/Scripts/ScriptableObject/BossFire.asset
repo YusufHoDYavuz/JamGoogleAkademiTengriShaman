@@ -15,7 +15,7 @@ MonoBehaviour:
   bossName: Fire
   skill: {fileID: 3204700675178935626, guid: 0ca16524adf11af449eb3478a7e9889c, type: 3}
   bossHealth: 100
-  damageAmount: 25
+  damageAmount: 10
   skillCounterAmount: 1
   skillRange: 25
   skillDistance: 25

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
@@ -15,7 +16,7 @@ public class EnemyController : MonoBehaviour
     private string bossName;
     private GameObject bossSkill;
     [HideInInspector] public float damageAmount;
-    [HideInInspector] public int bossHealth;
+    [HideInInspector] public float bossHealth;
     private float skillCounterAmount;
     private float stoppingDistance;
     private float skillRange;
@@ -29,6 +30,8 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] private GameObject gate;
     private bool isDead;
+
+    public Image enemyProgress;
 
     void Start()
     {
@@ -62,12 +65,31 @@ public class EnemyController : MonoBehaviour
             isDead = true;
         }
 
+        enemyProgress.fillAmount = bossHealth / 100;
+        print("TESTTTTT" + bossHealth);
+
         if (isDead)
         {
             gate.SetActive(true);
         }
 
-        
+        if (bossName == "Air")
+        {
+            Singleton.Instance.isDeadAir = true;
+        }
+        else if (bossName == "Earth")
+        {
+            Singleton.Instance.isDeadEarth = true;
+        }
+        else if (bossName == "Fire")
+        {
+            Singleton.Instance.isDeadFire = true;
+        }
+        else if (bossName == "Water")
+        {
+            Singleton.Instance.isDeadWater = true;
+        }
+
 
         if (bossHealth > 0)
         {

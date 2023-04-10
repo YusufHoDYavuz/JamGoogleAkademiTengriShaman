@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/AMain/WaterScene.unity
     guid: b416283978139dd44aa3ee06580f3590
+  - enabled: 1
+    path: Assets/AMain/BigBoss.unity
+    guid: 3bced91faec9ec24d8680791b5ecd817
+  - enabled: 1
+    path: Assets/AMain/Finish.unity
+    guid: fd4f770338c2cea418c732e0b438ea62
   m_configObjects: {}

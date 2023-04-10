@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    //[SerializeField] private Text playerHealth;
+    [SerializeField] private Image playerProgress;
     public float health;
 
     private Rigidbody rb;
@@ -14,6 +15,13 @@ public class PlayerHealth : MonoBehaviour
     {
         //playerHealth.text = health.ToString();
         rb = GetComponent<Rigidbody>();
+
+        if (health <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        playerProgress.fillAmount = health / 100;
     }
 
     private void OnTriggerEnter(Collider other)

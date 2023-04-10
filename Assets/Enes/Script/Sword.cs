@@ -32,6 +32,12 @@ public class Sword : MonoBehaviour
             _particleSystem.Play();
         }
 
+        if (other.CompareTag("BigBoss"))
+        {
+            other.GetComponent<BigBossController>().bossHealth -= swordDamage;
+            _particleSystem.Play();
+        }
+
     }
 
 

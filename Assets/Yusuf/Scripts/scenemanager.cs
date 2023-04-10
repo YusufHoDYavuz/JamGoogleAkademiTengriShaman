@@ -8,7 +8,7 @@ public class scenemanager : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -31,6 +31,14 @@ public class scenemanager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             SceneManager.LoadScene(1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            if (Singleton.Instance.isDeadWater && Singleton.Instance.isDeadEarth && Singleton.Instance.isDeadFire && Singleton.Instance.isDeadWater)
+            {
+                SceneManager.LoadScene(5);
+            }
         }
     }
 }

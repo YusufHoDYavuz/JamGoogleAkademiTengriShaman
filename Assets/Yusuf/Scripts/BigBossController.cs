@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine.AI;
 
 public class BigBossController : MonoBehaviour
@@ -16,11 +18,15 @@ public class BigBossController : MonoBehaviour
     [SerializeField] private float skillRange;
     [SerializeField] private float skillDistance;
 
-    public int bossHealth;
+    [SerializeField] private Image bigBossProgress;
+
+    public float bossHealth;
 
     private float distanceToPlayer;
     private int randomSkill;
     private float currentSpeed;
+
+    private bool isDead;
 
     void Start()
     {
@@ -38,12 +44,27 @@ public class BigBossController : MonoBehaviour
             animator.SetBool("isHit", false);
             animator.SetBool("isWalk", false);
             animator.SetBool("isDie", true);
+            isDead = true;
         }
+
+        if (isDead == true)
+        {
+            StartCoroutine(DelayFinish());
+        }
+
 
         if (bossHealth > 0)
         {
             EnemyControl();
         }
+
+        bigBossProgress.fillAmount = bossHealth / 100;
+    }
+
+    private IEnumerator DelayFinish()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(6);
     }
 
     private void EnemyControl()

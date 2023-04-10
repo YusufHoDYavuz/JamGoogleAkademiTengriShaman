@@ -8,7 +8,7 @@ public class Singleton : MonoBehaviour
 
     public bool isDeadAir;
     public bool isDeadEarth;
-    public bool isDeadLava;
+    public bool isDeadFire;
     public bool isDeadWater;
 
     public static Singleton Instance
@@ -19,13 +19,13 @@ public class Singleton : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
-    }
-
-    void Update()
-    {
-        
     }
 }
