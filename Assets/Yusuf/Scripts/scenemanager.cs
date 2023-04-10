@@ -5,40 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class scenemanager : MonoBehaviour
 {
+    [SerializeField] private GameObject infoPanel;
+    [SerializeField] private bool isInfoPanel;
+
+    [SerializeField] private GameObject forController;
 
     void Start()
     {
-
+        Destroy(forController, 10);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            SceneManager.LoadScene(3);
-        }
-
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            SceneManager.LoadScene(4);
-        }
-
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            SceneManager.LoadScene(2);
-        }
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            SceneManager.LoadScene(1);
-        }
-
         if (Input.GetKeyDown(KeyCode.L))
         {
             if (Singleton.Instance.isDeadWater && Singleton.Instance.isDeadEarth && Singleton.Instance.isDeadFire && Singleton.Instance.isDeadWater)
             {
                 SceneManager.LoadScene(5);
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            isInfoPanel = !isInfoPanel;
+            infoPanel.SetActive(isInfoPanel);
         }
     }
 }
