@@ -5,13 +5,13 @@ using UnityEngine;
 public class Sword : MonoBehaviour
 {
     private BoxCollider _swordCollider;
-    private PlayerAttack _playerAttack;
+    private PlayerAnimController _playerAnimController;
     private ParticleSystem _particleSystem;
 
     private void Awake()
     {
         _swordCollider = GetComponent<BoxCollider>();
-        _playerAttack = GetComponentInParent<PlayerAttack>();
+        _playerAnimController = GetComponentInParent<PlayerAnimController>();
         _particleSystem = GetComponentInChildren<ParticleSystem>();
     }
 
@@ -19,10 +19,7 @@ public class Sword : MonoBehaviour
 
     private void Update()
     {
-        _swordCollider.enabled = _playerAttack.triggerCollider;
-        if (_swordCollider.enabled ) {}
-        
-        
+        _swordCollider.enabled = _playerAnimController.swordCollider;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,7 +27,6 @@ public class Sword : MonoBehaviour
         if (other.CompareTag("Enemy") )
         {
             _particleSystem.Play();
-            Debug.Log("How many times");
         }
 
     }

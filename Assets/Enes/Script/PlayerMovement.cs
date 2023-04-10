@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     private PlayerAnimController _playerAnimController;
 
 
+
+
     private void Start()
     {
         _characterController = GetComponent<CharacterController>();
@@ -23,12 +25,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Update()
-    {
+    {   
+        if (_playerAnimController.isEarthAnimPlaying || _playerAnimController.isAirAnimPlaying || 
+            _playerAnimController.isWaterAnimPlaying || _playerAnimController.isFireAnimPlaying) { return; }
+            
         Movement();
     }
 
     private void Movement()
     {
+        Debug.Log("Test");
         float speed;
         float _horizontal = Input.GetAxisRaw("Horizontal");
         float _vertical = Input.GetAxisRaw("Vertical");
