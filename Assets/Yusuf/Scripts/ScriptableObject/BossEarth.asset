@@ -15,8 +15,8 @@ MonoBehaviour:
   bossName: Earth
   skill: {fileID: 5103899571658315007, guid: 989d233e0af864c42852a8820e2ad88a, type: 3}
   damageAmount: 50
-  skillCounterAmount: 0
-  skillRange: 20
-  skillDistance: 20
+  skillCounterAmount: 2
+  skillRange: 15
+  skillDistance: 15
   hitDistance: 3
   stoppingDistance: 10

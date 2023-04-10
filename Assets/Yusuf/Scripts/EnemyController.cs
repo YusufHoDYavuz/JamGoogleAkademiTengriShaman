@@ -24,6 +24,7 @@ public class EnemyController : MonoBehaviour
     private float distanceToPlayer;
     private int skillCounter;
     private float currentSpeed;
+    private Vector3 basePoint;
 
     void Start()
     {
@@ -40,6 +41,8 @@ public class EnemyController : MonoBehaviour
         stoppingDistance = BossSO.stoppingDistance;
 
         currentSpeed = enemyAgent.speed;
+
+        basePoint = transform.position;
     }
 
     void Update()
@@ -70,7 +73,7 @@ public class EnemyController : MonoBehaviour
 
     private void EnemyTurnAround()
     {
-        if (transform.position.x == 0)
+        if (transform.position.x == basePoint.x)
         {
             animator.SetBool("isWalk", false);
 
@@ -83,7 +86,7 @@ public class EnemyController : MonoBehaviour
         {
             animator.SetBool("is" + bossName + "BossSkill", false);
             animator.SetBool("isPunch", false);
-            enemyAgent.SetDestination(Vector3.zero);
+            enemyAgent.SetDestination(basePoint);
             animator.SetBool("isWalk", true);
             enemyAgent.stoppingDistance = 0;
         }
@@ -125,7 +128,7 @@ public class EnemyController : MonoBehaviour
     private void BossSkill(int destroyDelay)
     {
         ReturnSkillCounter();
-        GameObject skill = Instantiate(bossSkill, transform.position, Quaternion.identity, transform);
+        GameObject skill = Instantiate(bossSkill, transform.position, transform.rotation, transform);
         skill.transform.parent = null;
         skill.transform.localScale /= 2;
         Destroy(skill, destroyDelay);
