@@ -29,7 +29,7 @@ public class EarhSkill : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerHealthTEST>().health -= damageAmount;
+            other.GetComponent<PlayerHealth>().health -= damageAmount;
             GameObject smashEffectObject = Instantiate(smashEffect, transform.position, Quaternion.Euler(0,0,-90));
             Destroy(smashEffectObject, 3);
             Destroy(gameObject);

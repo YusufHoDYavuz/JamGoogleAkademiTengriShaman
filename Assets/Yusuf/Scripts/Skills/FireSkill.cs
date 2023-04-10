@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FireSkill : MonoBehaviour
 {
-    [SerializeField] private int damageAmount;
     [SerializeField] private float skillSpeed;
+    [SerializeField] private int damageAmount;
 
     private void Update()
     {
@@ -16,7 +16,7 @@ public class FireSkill : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerHealthTEST>().health -= damageAmount;
+            other.GetComponent<PlayerHealth>().health -= damageAmount;
         }
     }
 }

@@ -7,6 +7,7 @@ public class BossSO : ScriptableObject
 {
     public string bossName;
     public GameObject skill;
+    public int bossHealth;
     public float damageAmount;
     public float skillCounterAmount;
     public float skillRange;

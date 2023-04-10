@@ -16,7 +16,7 @@ public class AirSkill : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerHealthTEST>().health -= damageAmount;
+            other.GetComponent<PlayerHealth>().health -= damageAmount;
         }
     }
 }

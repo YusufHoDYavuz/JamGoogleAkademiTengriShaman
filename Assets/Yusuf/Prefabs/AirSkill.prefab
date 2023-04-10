@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillSpeed: 10
-  damageAmount: 40
+  damageAmount: 25
 --- !u!1001 &563333890
 PrefabInstance:
   m_ObjectHideFlags: 0

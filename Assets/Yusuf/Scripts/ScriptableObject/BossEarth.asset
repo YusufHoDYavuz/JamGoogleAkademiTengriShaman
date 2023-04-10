@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossName: Earth
   skill: {fileID: 5103899571658315007, guid: 989d233e0af864c42852a8820e2ad88a, type: 3}
-  damageAmount: 50
-  skillCounterAmount: 2
+  bossHealth: 100
+  damageAmount: 25
+  skillCounterAmount: 1
   skillRange: 15
   skillDistance: 15
-  hitDistance: 3
+  hitDistance: 2
   stoppingDistance: 10

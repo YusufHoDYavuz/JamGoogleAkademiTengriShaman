@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     private string bossName;
     private GameObject bossSkill;
     [HideInInspector] public float damageAmount;
+    [HideInInspector] public int bossHealth;
     private float skillCounterAmount;
     private float stoppingDistance;
     private float skillRange;
@@ -39,6 +40,7 @@ public class EnemyController : MonoBehaviour
         skillDistance = BossSO.skillDistance;
         hitDistance = BossSO.hitDistance;
         stoppingDistance = BossSO.stoppingDistance;
+        bossHealth = BossSO.bossHealth;
 
         currentSpeed = enemyAgent.speed;
 
@@ -47,7 +49,20 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        EnemyControl();
+        if (bossHealth <= 0)
+        {
+            animator.SetBool("is" + bossName + "BossSkill", false);
+            animator.SetBool("isPunch", false);
+            animator.SetBool("isHit", false);
+            animator.SetBool("isWalk", false);
+            animator.SetBool("isDie", true);
+        }
+
+        if (bossHealth > 0)
+        {
+            EnemyControl();
+        }
+       
     }
 
     private void EnemyControl()
@@ -86,6 +101,7 @@ public class EnemyController : MonoBehaviour
         {
             animator.SetBool("is" + bossName + "BossSkill", false);
             animator.SetBool("isPunch", false);
+            animator.SetBool("isHit", false);
             enemyAgent.SetDestination(basePoint);
             animator.SetBool("isWalk", true);
             enemyAgent.stoppingDistance = 0;
@@ -100,6 +116,7 @@ public class EnemyController : MonoBehaviour
         {
             animator.SetBool("is" + bossName + "BossSkill", false);
             animator.SetBool("isWalk", false);
+            animator.SetBool("isHit", false);
             enemyAgent.stoppingDistance = hitDistance;
             animator.SetBool("isPunch", true);
         }
@@ -108,6 +125,7 @@ public class EnemyController : MonoBehaviour
         {
             animator.SetBool("is" + bossName + "BossSkill", false);
             animator.SetBool("isPunch", false);
+            animator.SetBool("isHit", false);
             transform.LookAt(player.transform);
             enemyAgent.stoppingDistance = skillDistance;
             animator.SetBool("isWalk", false);
@@ -119,6 +137,7 @@ public class EnemyController : MonoBehaviour
     private void EnemyChasing()
     {
         enemyAgent.SetDestination(player.transform.position);
+        animator.SetBool("isHit", false);
         animator.SetBool("isWalk", true);
         Debug.Log("Enemy Chasing");
         enemyAgent.stoppingDistance = 0;
@@ -180,5 +199,13 @@ public class EnemyController : MonoBehaviour
         }
 
         return skillCounter;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Sword"))
+        {
+            animator.SetBool("isHit", true);
+        }
     }
 }

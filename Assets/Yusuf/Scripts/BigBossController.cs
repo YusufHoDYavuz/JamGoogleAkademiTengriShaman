@@ -16,6 +16,8 @@ public class BigBossController : MonoBehaviour
     [SerializeField] private float skillRange;
     [SerializeField] private float skillDistance;
 
+    public int bossHealth;
+
     private float distanceToPlayer;
     private int randomSkill;
     private float currentSpeed;
@@ -30,7 +32,18 @@ public class BigBossController : MonoBehaviour
 
     void Update()
     {
-        EnemyControl();
+        if (bossHealth <= 0)
+        {
+            animator.SetBool("isPunch", false);
+            animator.SetBool("isHit", false);
+            animator.SetBool("isWalk", false);
+            animator.SetBool("isDie", true);
+        }
+
+        if (bossHealth > 0)
+        {
+            EnemyControl();
+        }
     }
 
     private void EnemyControl()
@@ -65,6 +78,7 @@ public class BigBossController : MonoBehaviour
                 animator.SetBool("is" + bossNames[i] + "BossSkill", false);
             }
 
+            animator.SetBool("isHit", false);
             enemyAgent.SetDestination(Vector3.zero);
             animator.SetBool("isWalk", true);
             enemyAgent.stoppingDistance = 0;
@@ -76,6 +90,7 @@ public class BigBossController : MonoBehaviour
     private void EnemyChasing()
     {
         enemyAgent.SetDestination(player.transform.position);
+        animator.SetBool("isHit", false);
         animator.SetBool("isWalk", true);
         Debug.Log("Enemy Chasing");
         enemyAgent.stoppingDistance = 0;
@@ -91,6 +106,7 @@ public class BigBossController : MonoBehaviour
             }
             transform.LookAt(player.transform.position);
             enemyAgent.stoppingDistance = skillDistance;
+            animator.SetBool("isHit", false);
             animator.SetBool("isWalk", false);
             animator.SetBool("is" + bossNames[GetRandomIntValue()] + "BossSkill", true);
         }
@@ -120,5 +136,13 @@ public class BigBossController : MonoBehaviour
     private void EnemyUnfreeze()
     {
         enemyAgent.speed = currentSpeed;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Sword"))
+        {
+            animator.SetBool("isHit", true);
+        }
     }
 }

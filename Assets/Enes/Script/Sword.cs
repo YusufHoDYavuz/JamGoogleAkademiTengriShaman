@@ -8,6 +8,8 @@ public class Sword : MonoBehaviour
     private PlayerAnimController _playerAnimController;
     private ParticleSystem _particleSystem;
 
+    [SerializeField] private int swordDamage;
+
     private void Awake()
     {
         _swordCollider = GetComponent<BoxCollider>();
@@ -26,6 +28,7 @@ public class Sword : MonoBehaviour
     {
         if (other.CompareTag("Enemy") )
         {
+            other.GetComponent<EnemyController>().bossHealth -= swordDamage;
             _particleSystem.Play();
         }
 

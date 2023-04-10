@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossName: Water
   skill: {fileID: 6349254796658883948, guid: 990fbc933c10be940a03dd7b1372425c, type: 3}
-  damageAmount: 50
+  bossHealth: 100
+  damageAmount: 25
   skillCounterAmount: 1
   skillRange: 20
   skillDistance: 20
-  hitDistance: 3
+  hitDistance: 2
   stoppingDistance: 10

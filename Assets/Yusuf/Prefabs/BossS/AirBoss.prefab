@@ -2432,7 +2432,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 2, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2619399130810177901
 MonoBehaviour:
@@ -2446,6 +2446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87c0a84e125504646aefac24d2259166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageAmount: 10
 --- !u!1 &6513041445498579078
 GameObject:
   m_ObjectHideFlags: 0
@@ -3317,9 +3318,10 @@ GameObject:
   - component: {fileID: 7270036813508419378}
   - component: {fileID: 1634688139804826715}
   - component: {fileID: 423782796862905524}
+  - component: {fileID: 460789790}
   m_Layer: 0
   m_Name: AirBoss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3381,7 +3383,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0.275
+  m_BaseOffset: 0.2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &423782796862905524
@@ -3400,6 +3402,21 @@ MonoBehaviour:
   player: {fileID: 0}
   punchCollider: {fileID: 6351528759015931800}
   damageAmount: 0
+  bossHealth: 100
+--- !u!136 &460789790
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8731785033922422061}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1 &8856858034532861558
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PunchSkill : MonoBehaviour
 {
+    [SerializeField] private int damageAmount;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerHealthTEST>().health -= transform.GetComponentInParent<EnemyController>().damageAmount;
+            other.GetComponent<PlayerHealth>().health -= damageAmount;
         }
     }
 }

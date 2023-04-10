@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &175288095
 Transform:
   m_ObjectHideFlags: 0
@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87c0a84e125504646aefac24d2259166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageAmount: 10
 --- !u!1 &42586288702091950
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,9 +1098,10 @@ GameObject:
   - component: {fileID: 213884681}
   - component: {fileID: 213884680}
   - component: {fileID: 213884679}
+  - component: {fileID: 729200994}
   m_Layer: 0
   m_Name: FireBoss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1180,6 +1182,21 @@ MonoBehaviour:
   player: {fileID: 0}
   punchCollider: {fileID: 175288094}
   damageAmount: 0
+  bossHealth: 0
+--- !u!136 &729200994
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3024594383767397118}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1 &3043850454308553125
 GameObject:
   m_ObjectHideFlags: 0

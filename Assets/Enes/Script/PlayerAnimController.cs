@@ -17,10 +17,8 @@ public class PlayerAnimController : MonoBehaviour
     public bool isFireAnimPlaying = false;
     public bool swordCollider = false;
 
-
     private Animator _animator;
     private float _dampTime = 0.2f;
-    
 
     private void Start()
     {

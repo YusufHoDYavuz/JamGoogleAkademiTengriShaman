@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossName: Air
   skill: {fileID: 3098154478384629422, guid: 4505d45f0741e5841bb5704627fc2007, type: 3}
-  damageAmount: 50
-  skillCounterAmount: 2
+  bossHealth: 100
+  damageAmount: 25
+  skillCounterAmount: 1
   skillRange: 20
   skillDistance: 20
-  hitDistance: 3
+  hitDistance: 2
   stoppingDistance: 10

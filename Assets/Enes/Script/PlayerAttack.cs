@@ -13,7 +13,6 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Transform leftHandTransform;
     [SerializeField] private GameObject fireSkillObject;
 
-
     [SerializeField] private float iceThrowForce = 5000f;
     [SerializeField] private float iceObjectDestoryTime = 5f;
     [SerializeField] private int _earthSkillCooldown = 25;
@@ -38,8 +37,6 @@ public class PlayerAttack : MonoBehaviour
 
     private float _airSkillColliderSize = 0.2f;
     private float _colliderSize = 0.9f;
-
-
 
     private enum AttackState
     {
@@ -240,10 +237,5 @@ public class PlayerAttack : MonoBehaviour
     {
         fireSkillObject.SetActive(false);
     }
-
-
-
-
-
 
 }

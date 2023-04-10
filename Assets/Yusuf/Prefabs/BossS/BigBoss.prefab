@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 775049633033247938}
   - component: {fileID: 775049633033247939}
   - component: {fileID: 919132147710541484}
+  - component: {fileID: 1600319516}
   m_Layer: 0
   m_Name: BigBoss
   m_TagString: Untagged
@@ -169,6 +170,20 @@ MonoBehaviour:
   - {fileID: 3204700675178935626, guid: 0ca16524adf11af449eb3478a7e9889c, type: 3}
   skillRange: 20
   skillDistance: 15
+--- !u!136 &1600319516
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432607630384652693}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1 &639130661514845826
 GameObject:
   m_ObjectHideFlags: 0
