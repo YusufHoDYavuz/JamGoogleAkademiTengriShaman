@@ -27,6 +27,9 @@ public class EnemyController : MonoBehaviour
     private float currentSpeed;
     private Vector3 basePoint;
 
+    [SerializeField] private GameObject gate;
+    private bool isDead;
+
     void Start()
     {
         enemyAgent = GetComponent<NavMeshAgent>();
@@ -56,7 +59,15 @@ public class EnemyController : MonoBehaviour
             animator.SetBool("isHit", false);
             animator.SetBool("isWalk", false);
             animator.SetBool("isDie", true);
+            isDead = true;
         }
+
+        if (isDead)
+        {
+            gate.SetActive(true);
+        }
+
+        
 
         if (bossHealth > 0)
         {

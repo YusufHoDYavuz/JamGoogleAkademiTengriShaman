@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/AMain/MainBase.unity
+    guid: 9073a1c946b17334f9a085b52ee55db5
+  - enabled: 1
+    path: Assets/AMain/AirScene.unity
+    guid: fed2e63d39f302648b6d2ab67ebb5582
+  - enabled: 1
+    path: Assets/AMain/EarthScene.unity
+    guid: ccc09b3706d4b7442a3fdc9d66d12444
+  - enabled: 1
+    path: Assets/AMain/LavaScene.unity
+    guid: 5bb7cdaa257a5a549aba04a807524aa2
+  - enabled: 1
+    path: Assets/AMain/WaterScene.unity
+    guid: b416283978139dd44aa3ee06580f3590
   m_configObjects: {}
