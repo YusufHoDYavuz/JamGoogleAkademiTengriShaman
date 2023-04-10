@@ -705,6 +705,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7804647519942098041, guid: 38a56d38695f924469e6ec7ff86adf65, type: 3}
+      propertyPath: swordDamage
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38a56d38695f924469e6ec7ff86adf65, type: 3}
 --- !u!4 &299651542 stripped
@@ -996,8 +1000,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363113920}
-  m_LocalRotation: {x: 0.105288446, y: 0.48491818, z: 0.058943145, w: -0.8661954}
-  m_LocalPosition: {x: -11.823797, y: -4.8301167, z: -4.659322}
+  m_LocalRotation: {x: -0.3106034, y: 0.5112055, z: 0.20496756, w: 0.7747147}
+  m_LocalPosition: {x: -645.5976, y: -1107.0953, z: 104.510254}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
