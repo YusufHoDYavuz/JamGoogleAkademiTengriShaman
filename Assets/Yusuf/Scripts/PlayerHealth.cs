@@ -21,7 +21,8 @@ public class PlayerHealth : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
-        playerProgress.fillAmount = health / 100;
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+            playerProgress.fillAmount = health / 100;
     }
 
     private void OnTriggerEnter(Collider other)
